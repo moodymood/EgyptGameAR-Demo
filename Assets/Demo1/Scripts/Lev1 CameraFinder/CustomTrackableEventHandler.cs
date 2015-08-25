@@ -30,6 +30,7 @@ namespace Vuforia
 		{
 
 			game = SharedInfo.getCurrGame ();
+		
 
 			mTrackableBehaviour = GetComponent<TrackableBehaviour>();
 			if (mTrackableBehaviour)
@@ -75,8 +76,9 @@ namespace Vuforia
 		{
 
 			bool isVisible = false;
-			Collider artefactCollider = new Collider(), questionMarkCollider = new Collider();
-			Artefact currArtefact;
+			Collider artefactCollider = new Collider();
+			Renderer artefactRenderer = new Renderer(), artefactRendererExtra = new Renderer(), questionMarkRenderer = new Renderer();
+			Artefact currArtefact = new Artefact ();
 
 			Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
 			Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
@@ -84,48 +86,51 @@ namespace Vuforia
 			// Enable rendering:
 			foreach (Renderer component in rendererComponents)
 			{
-				component.enabled = true;
+				string componentName = component.gameObject.name.Replace("Texture","");
+
+				if(componentName == "Horus0" || componentName == "Horus1"){
+					if(componentName == "Horus0"){
+						artefactRendererExtra = component;
+					}
+					componentName = "Horus";
+				}
+
+				currArtefact = game.getCollection().getArtefactByName(componentName);
+				//Debug.Log("Renderer: " + componentName);
+
+				if(componentName == "FindOtherFirst")			
+					questionMarkRenderer = component;
+
+				else if(currArtefact != null)
+					artefactRenderer = component;	
 			}
 			
 			// Enable colliders:
 			foreach (Collider component in colliderComponents)
 			{
-				//Need to reset the message when a new artefac is found
-				GameObject.Find("Collection").GetComponent<PopUpManager>().setShowPopUp(false);
-				currArtefact = game.getCollection().getArtefactByName(component.gameObject.name);
-				Debug.Log("component"+(component.name));
+				currArtefact = game.getCollection().getArtefactByName(component.name);
+				//Debug.Log("Collider: " + component.name);
 
-
-				if(component.name == "FindOtherFirst"){
-					
-					questionMarkCollider = component;
-					//Debug.Log("questionMarkCollider"+questionMarkCollider.name);
-				
-					
-				}
-				// It is an artefact
-				else if(currArtefact != null){
+				if(currArtefact != null){
 					artefactCollider = component;
-					//Debug.Log("artefactCollider"+artefactCollider.name);
-					if(currArtefact.getId() <= game.getCollectionStatus().getNextToCollect())
-						isVisible = true;
-					else
-						isVisible = false;
 				}
 			}
 
-			if (!isVisible) {
 
-				artefactCollider.gameObject.SetActive (false);
-				questionMarkCollider.enabled = false;
-
-				//GameObject.Find("Collection").GetComponent<PopUpManager>().setShowPopUp(true);
-				//GameObject.Find("Collection").GetComponent<PopUpManager>().setPopUpMessage( 
-				//    "There is something hiding here, but you need to follow the collection order to find out what!");
+			// Show the artefact
+			if (currArtefact != null && currArtefact.getId() <= game.getCollectionStatus().getNextToCollect()) {
+				questionMarkRenderer.enabled = false;
+				artefactCollider.enabled = true;
+				artefactRenderer.enabled = true;
+				if(currArtefact.getName() == "Horus")
+					artefactRendererExtra.enabled = true;
 
 			} else {
-				questionMarkCollider.gameObject.SetActive (false);
-				artefactCollider.enabled = true;
+
+				artefactCollider.enabled = false;
+				artefactCollider.enabled = false;
+				questionMarkRenderer.enabled = true;
+
 			}
 			
 			Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
