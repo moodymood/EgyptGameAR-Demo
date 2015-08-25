@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: a212d16c3a0324640a75783e3092e624
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Untextured
+    100002: Texture_0
+    100004: IMG_1026_JPG
+    100006: IMG_1025_JPG
+    100008: IMG_1024_JPG
+    100010: IMG_1023_JPG
+    100012: IMG_1022_JPG
+    100014: IMG_1021_JPG
+    100016: IMG_1020_JPG
+    100018: IMG_1019_JPG
+    100020: IMG_1018_JPG
+    100022: IMG_1017_JPG
+    100024: IMG_1016_JPG
+    100026: IMG_1015_JPG
+    100028: IMG_1014_JPG
+    100030: IMG_1013_JPG
+    100032: IMG_1012_JPG
+    100034: IMG_1011_JPG
+    100036: IMG_1010_JPG
+    100038: IMG_1009_JPG
+    100040: IMG_1008_JPG
+    100042: IMG_1007_JPG
+    100044: IMG_1006_JPG
+    100046: IMG_1005_JPG
+    100048: IMG_1004_JPG
+    100050: IMG_1003_JPG
+    100052: IMG_1002_JPG
+    100054: IMG_1001_JPG
+    100056: IMG_1000_JPG
+    100058: IMG_0999_JPG
+    100060: IMG_0998_JPG
+    100062: IMG_0997_JPG
+    100064: IMG_0996_JPG
+    100066: IMG_0995_JPG
+    100068: IMG_0994_JPG
+    100070: IMG_0993_JPG
+    100072: IMG_0992_JPG
+    100074: IMG_0991_JPG
+    100076: IMG_0990_JPG
+    100078: IMG_0989_JPG
+    100080: IMG_0988_JPG
+    100082: IMG_0987_JPG
+    100084: IMG_0986_JPG
+    100086: IMG_0985_JPG
+    100088: IMG_0984_JPG
+    100090: IMG_0983_JPG
+    100092: IMG_0982_JPG
+    100094: //RootNode
+    100096: Object1 MobileEgypt Swansea Egyptology_root
+    400000: Untextured
+    400002: Texture_0
+    400004: IMG_1026_JPG
+    400006: IMG_1025_JPG
+    400008: IMG_1024_JPG
+    400010: IMG_1023_JPG
+    400012: IMG_1022_JPG
+    400014: IMG_1021_JPG
+    400016: IMG_1020_JPG
+    400018: IMG_1019_JPG
+    400020: IMG_1018_JPG
+    400022: IMG_1017_JPG
+    400024: IMG_1016_JPG
+    400026: IMG_1015_JPG
+    400028: IMG_1014_JPG
+    400030: IMG_1013_JPG
+    400032: IMG_1012_JPG
+    400034: IMG_1011_JPG
+    400036: IMG_1010_JPG
+    400038: IMG_1009_JPG
+    400040: IMG_1008_JPG
+    400042: IMG_1007_JPG
+    400044: IMG_1006_JPG
+    400046: IMG_1005_JPG
+    400048: IMG_1004_JPG
+    400050: IMG_1003_JPG
+    400052: IMG_1002_JPG
+    400054: IMG_1001_JPG
+    400056: IMG_1000_JPG
+    400058: IMG_0999_JPG
+    400060: IMG_0998_JPG
+    400062: IMG_0997_JPG
+    400064: IMG_0996_JPG
+    400066: IMG_0995_JPG
+    400068: IMG_0994_JPG
+    400070: IMG_0993_JPG
+    400072: IMG_0992_JPG
+    400074: IMG_0991_JPG
+    400076: IMG_0990_JPG
+    400078: IMG_0989_JPG
+    400080: IMG_0988_JPG
+    400082: IMG_0987_JPG
+    400084: IMG_0986_JPG
+    400086: IMG_0985_JPG
+    400088: IMG_0984_JPG
+    400090: IMG_0983_JPG
+    400092: IMG_0982_JPG
+    400094: //RootNode
+    400096: Object1 MobileEgypt Swansea Egyptology_root
+    2300000: Untextured
+    2300002: Texture_0
+    3300000: Untextured
+    3300002: Texture_0
+    4300000: Texture_0
+    4300002: Untextured
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
