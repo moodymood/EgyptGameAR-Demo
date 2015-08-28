@@ -19,11 +19,19 @@ public class UpdateMenu : MonoBehaviour {
 	void Start () {
 		game = SharedInfo.getCurrGame ();
 		won = (game.getCollection ().getTotal () == game.getCollectionStatus ().getTotalCollected ());
+		string statusMessage = game.getCollectionStatus().getTotalCollected() + " out of " + game.getCollection().getTotal() + "\n already collected.";
+		string victoryMessage = "";
 		if (won) {
-			GameObject.Find ("GameTitle").GetComponentInChildren<Text> ().text = "You Won!";
+			// Update status message
+			victoryMessage = "You Won!";
+
+			// Create particle effect
 			Transform containerTransform = GameObject.Find("Container").gameObject.transform;
 			effect = (Transform)Instantiate (particlesEffect, containerTransform.position, containerTransform.rotation);
+
 		}
+		GameObject.Find ("GameStatus").GetComponentInChildren<Text> ().text = statusMessage;
+		GameObject.Find ("WonMessage").GetComponentInChildren<Text> ().text = victoryMessage;
 	}
 	
 	// Update is called once per frame

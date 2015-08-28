@@ -46,9 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Demo1\Scripts\Lev-1 Introduction\GameInit.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev-1 Introduction\OnSwipe.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev-1 Introduction\ResetScreenOrientation.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev-1 Info\GameInit.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev-1 Info\OnSwipe.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev0 Menu\MenuButtonsManager.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev0 Menu\UpdateMenu.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev1 CameraFinder\CameraAutofocus.cs" />
@@ -70,6 +69,8 @@
      <Compile Include="Assets\Demo1\Scripts\Misc\Game.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\OnButtonClick.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\PopUpMessage.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Misc\ScreenOrientationAuto.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Misc\ScreenOrientationPortrait.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\SharedInfo.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CloudRecoBehaviour.cs" />

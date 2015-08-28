@@ -11,9 +11,9 @@ public class MenuButtonsManager : MonoBehaviour {
 	void Update () {	
 	}
 
-	public void resetGame(string levelToLoad){
+	public void resetGame(){
 		SharedInfo.getCurrGame().resetGame ();
-		Application.LoadLevel (levelToLoad);
+		//Application.LoadLevel (levelToLoad);
 	}
 
 	public void quitGame(){

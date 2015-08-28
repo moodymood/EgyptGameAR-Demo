@@ -82,6 +82,9 @@ namespace Vuforia
 
 			Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
 			Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+
+			// Each time a new artefact is found, clean any old pup up messages
+			GameObject.Find("Collection").GetComponent<PopUpManager>().setShowPopUp(false);
 			
 			// Enable rendering:
 			foreach (Renderer component in rendererComponents)
