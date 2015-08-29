@@ -1,5 +1,4 @@
-OV
-    t16_0.y = _LightMatrix0[1].x;
+atrix0[1].x;
     //Instruction 632
     //MOV
     t16_0.z = _LightMatrix0[2].x;

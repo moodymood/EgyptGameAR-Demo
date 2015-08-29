@@ -19,7 +19,7 @@ public class UpdateMenu : MonoBehaviour {
 	void Start () {
 		game = SharedInfo.getCurrGame ();
 		won = (game.getCollection ().getTotal () == game.getCollectionStatus ().getTotalCollected ());
-		string statusMessage = game.getCollectionStatus().getTotalCollected() + " out of " + game.getCollection().getTotal() + "\n already collected.";
+		string statusMessage = game.getCollectionStatus().getTotalCollected() + " out of " + game.getCollection().getTotal() + "\n artefacts collected";
 		string victoryMessage = "";
 		if (won) {
 			// Update status message

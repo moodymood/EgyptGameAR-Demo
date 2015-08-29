@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Demo1/Scripts/Misc/OnButtonClick.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Demo1/Scripts/Lev0 Menu/UpdateMenu.cs">
     <Files>
-      <File FileName="Assets/Demo1/Scripts/Lev0 Menu/UpdateMenu.cs" Line="22" Column="146" />
+      <File FileName="Assets/Demo1/Scripts/Lev0 Menu/UpdateMenu.cs" Line="26" Column="1" />
       <File FileName="Assets/Demo1/Scripts/Lev1 CameraFinder/CustomTrackableEventHandler.cs" Line="1" Column="1" />
       <File FileName="Assets/Demo1/Scripts/Lev1 CameraFinder/DragArtefact.cs" Line="1" Column="1" />
       <File FileName="Assets/Demo1/Scripts/Lev0 Menu/MenuButtonsManager.cs" Line="1" Column="1" />
