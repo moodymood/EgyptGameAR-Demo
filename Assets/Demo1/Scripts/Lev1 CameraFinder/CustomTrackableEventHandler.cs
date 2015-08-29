@@ -84,7 +84,7 @@ namespace Vuforia
 			Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
 			// Each time a new artefact is found, clean any old pup up messages
-			GameObject.Find("Collection").GetComponent<PopUpManager>().setShowPopUp(false);
+			GameObject.Find("CameraFinderSceneManager").GetComponent<PopUpManager>().setShowPopUp(false);
 			
 			// Enable rendering:
 			foreach (Renderer component in rendererComponents)
@@ -136,7 +136,7 @@ namespace Vuforia
 
 			}
 			
-			Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+			//Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 		}
 		
 		
@@ -157,7 +157,7 @@ namespace Vuforia
 				component.enabled = false;
 			}
 			
-			Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+			//Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
 		}
 		
 		#endregion // PRIVATE_METHODS

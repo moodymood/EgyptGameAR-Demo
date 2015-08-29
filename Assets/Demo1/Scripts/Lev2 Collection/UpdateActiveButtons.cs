@@ -10,6 +10,7 @@ public class UpdateActiveButtons : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		game = SharedInfo.getCurrGame ();
+
 		updateArtefactButtons();
 		updateWonButton ();
 	}
@@ -76,12 +77,10 @@ public class UpdateActiveButtons : MonoBehaviour {
 	}
 
 	void OnGUI () {
-	//	bool won = game.getCollection ().getTotal () == game.getCollectionStatus ().getTotalCollected ();
 
 		GUIStyle guiStyle = new GUIStyle();
 		guiStyle.fontSize = 50; //change the font size
 //		GUI.Label(new Rect(20, 60,600,200), "won" + won, guiStyle);
-//		GUI.Label(new Rect(20, 120,600,200), "total " + game.getCollection ().getTotal () + ", collected " +game.getCollectionStatus ().getTotalCollected (), guiStyle);
 
 	}
 	

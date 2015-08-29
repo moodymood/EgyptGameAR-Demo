@@ -8,7 +8,6 @@ public class Gestures : MonoBehaviour {
 	// get the fucking right screen orientation event
 	
 	public Game game;
-	public string message;
 	public float perspectiveZoomSpeed = 0.5f; 
 
 	void Start () {
@@ -23,7 +22,7 @@ public class Gestures : MonoBehaviour {
 		if (!isPanelUp()) {
 
 				Artefact currentArtefact = game.getCurrentArtefact ();
-				Debug.Log ("artefact" + currentArtefact.getName());
+				//Debug.Log ("artefact" + currentArtefact.getName());
 				if (currentArtefact != null) {
 					Transform artTransform = GameObject.Find (currentArtefact.getName ()).transform;
 					if (Input.touchCount == 1) {
@@ -76,21 +75,7 @@ public class Gestures : MonoBehaviour {
 			return false;
 	}
 
-
-	/*
-	public bool isVector2DInsideTopWindow(Vector2 fingerPos){
-		Vector2 pos = Camera.main.ScreenToViewportPoint(fingerPos);
-		Debug.Log ("pos" + pos);
-		pos.x = Mathf.Clamp01(pos.x);
-		pos.y = Mathf.Clamp01(pos.y);
-		Debug.Log ("posx" + pos.x);
-		Debug.Log ("posy" + pos.y);
-		if (pos.x > 0.0 && pos.x < 1.0 && pos.y > 0.35 && pos.y < 1)
-			return true;
-		else
-			return false;
-	}
-	*/
+	
 
 
 	public bool isPanelUp(){

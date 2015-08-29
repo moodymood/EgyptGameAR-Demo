@@ -97,8 +97,8 @@ public class DragArtefact : MonoBehaviour {
 								}else{
 									// Artefact collected, so show error message
 									if(!isFirstTime)
-										GameObject.Find("Collection").GetComponent<PopUpManager>().setShowPopUp(true);
-										GameObject.Find("Collection").GetComponent<PopUpManager>().setPopUpMessage( 
+										GameObject.Find("CameraFinderSceneManager").GetComponent<PopUpManager>().setShowPopUp(true);
+										GameObject.Find("CameraFinderSceneManager").GetComponent<PopUpManager>().setPopUpMessage( 
 											"You already have " + game.getCurrentArtefact().getName() + " in your bag");
 								}
 							}
