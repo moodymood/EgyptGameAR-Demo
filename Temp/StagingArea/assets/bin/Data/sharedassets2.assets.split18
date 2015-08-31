@@ -1,0 +1,1138 @@
+   //Instruction 188
+    //DP4
+    t16_3.z = dot(unity_SHAb, t0);
+    //Instruction 189
+    //ADD
+    t16_2.xyz = t16_2.xyz + t16_3.xyz;
+    //Instruction 190
+    //MOV
+    vs_TEXCOORD4.xyz = t16_2.xyz;
+    //Instruction 191
+    //RET
+    return;
+}
+
+#endif
+#ifdef FRAGMENT
+#version 300 es
+precision highp float;
+precision highp int;
+uniform lowp sampler2D _MainTex;
+uniform lowp sampler2D _LightBuffer;
+in highp vec2 vs_TEXCOORD0;
+in highp vec4 vs_TEXCOORD2;
+in highp vec3 vs_TEXCOORD4;
+layout(location = 0) out lowp vec4 SV_Target0;
+highp vec3 t0;
+lowp vec3 t10_0;
+mediump vec3 t16_1;
+lowp vec3 t10_2;
+void main()
+{
+    //Instruction 140
+    //DIV
+    t0.xy = vs_TEXCOORD2.xy / vs_TEXCOORD2.ww;
+    //Instruction 141
+    //SAMPLE
+    t10_0.xyz = texture(_LightBuffer, t0.xy).xyz;
+    //Instruction 142
+    //MAX
+    t16_1.xyz = max(t10_0.xyz, vec3(0.00100000005, 0.00100000005, 0.00100000005));
+    //Instruction 143
+    //ADD
+    t0.xyz = t16_1.xyz + vs_TEXCOORD4.xyz;
+    //Instruction 144
+    //SAMPLE
+    t10_2.xyz = texture(_MainTex, vs_TEXCOORD0.xy).xyz;
+    //Instruction 145
+    //MUL
+    t16_1.xyz = t0.xyz * t10_2.xyz;
+    //Instruction 146
+    //MOV
+    SV_Target0.xyz = t16_1.xyz;
+    //Instruction 147
+    //MOV
+    SV_Target0.w = 1.0;
+    //Instruction 148
+    //RET
+    return;
+}
+
+#endif
+"
+}
+}
+Program "fp" {
+SubProgram "gles " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "HDR_LIGHT_PREPASS_OFF" }
+"!!GLES"
+}
+SubProgram "gles3 " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "HDR_LIGHT_PREPASS_OFF" }
+"!!GLES3"
+}
+SubProgram "gles " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "UNITY_HDR_ON" }
+"!!GLES"
+}
+SubProgram "gles3 " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "UNITY_HDR_ON" }
+"!!GLES3"
+}
+}
+ }
+ Pass {
+  Name "DEFERRED"
+  Tags { "LIGHTMODE"="Deferred" "RenderType"="Opaque" }
+  GpuProgramID 200863
+Program "vp" {
+SubProgram "gles " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "HDR_LIGHT_PREPASS_OFF" }
+"!!GLES
+#version 100
+
+#ifdef VERTEX
+attribute vec4 _glesVertex;
+attribute vec3 _glesNormal;
+attribute vec4 _glesMultiTexCoord0;
+uniform mediump vec4 unity_SHAr;
+uniform mediump vec4 unity_SHAg;
+uniform mediump vec4 unity_SHAb;
+uniform mediump vec4 unity_SHBr;
+uniform mediump vec4 unity_SHBg;
+uniform mediump vec4 unity_SHBb;
+uniform mediump vec4 unity_SHC;
+uniform highp mat4 glstate_matrix_mvp;
+uniform highp mat4 _Object2World;
+uniform highp mat4 _World2Object;
+uniform highp vec4 _MainTex_ST;
+varying highp vec2 xlv_TEXCOORD0;
+varying mediump vec3 xlv_TEXCOORD1;
+varying highp vec3 xlv_TEXCOORD2;
+varying highp vec4 xlv_TEXCOORD4;
+varying mediump vec3 xlv_TEXCOORD5;
+void main ()
+{
+  lowp vec3 worldNormal_1;
+  mediump vec3 tmpvar_2;
+  highp vec4 tmpvar_3;
+  highp vec4 v_4;
+  v_4.x = _World2Object[0].x;
+  v_4.y = _World2Object[1].x;
+  v_4.z = _World2Object[2].x;
+  v_4.w = _World2Object[3].x;
+  highp vec4 v_5;
+  v_5.x = _World2Object[0].y;
+  v_5.y = _World2Object[1].y;
+  v_5.z = _World2Object[2].y;
+  v_5.w = _World2Object[3].y;
+  highp vec4 v_6;
+  v_6.x = _World2Object[0].z;
+  v_6.y = _World2Object[1].z;
+  v_6.z = _World2Object[2].z;
+  v_6.w = _World2Object[3].z;
+  highp vec3 tmpvar_7;
+  tmpvar_7 = normalize(((
+    (v_4.xyz * _glesNormal.x)
+   + 
+    (v_5.xyz * _glesNormal.y)
+  ) + (v_6.xyz * _glesNormal.z)));
+  worldNormal_1 = tmpvar_7;
+  tmpvar_2 = worldNormal_1;
+  tmpvar_3.zw = vec2(0.0, 0.0);
+  tmpvar_3.xy = vec2(0.0, 0.0);
+  lowp vec4 tmpvar_8;
+  tmpvar_8.w = 1.0;
+  tmpvar_8.xyz = worldNormal_1;
+  mediump vec4 normal_9;
+  normal_9 = tmpvar_8;
+  mediump vec3 x2_10;
+  mediump vec3 x1_11;
+  x1_11.x = dot (unity_SHAr, normal_9);
+  x1_11.y = dot (unity_SHAg, normal_9);
+  x1_11.z = dot (unity_SHAb, normal_9);
+  mediump vec4 tmpvar_12;
+  tmpvar_12 = (normal_9.xyzz * normal_9.yzzx);
+  x2_10.x = dot (unity_SHBr, tmpvar_12);
+  x2_10.y = dot (unity_SHBg, tmpvar_12);
+  x2_10.z = dot (unity_SHBb, tmpvar_12);
+  gl_Position = (glstate_matrix_mvp * _glesVertex);
+  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
+  xlv_TEXCOORD1 = tmpvar_2;
+  xlv_TEXCOORD2 = (_Object2World * _glesVertex).xyz;
+  xlv_TEXCOORD4 = tmpvar_3;
+  xlv_TEXCOORD5 = ((x2_10 + (unity_SHC.xyz * 
+    ((normal_9.x * normal_9.x) - (normal_9.y * normal_9.y))
+  )) + x1_11);
+}
+
+
+#endif
+#ifdef FRAGMENT
+#extension GL_EXT_draw_buffers : enable
+uniform sampler2D _MainTex;
+varying highp vec2 xlv_TEXCOORD0;
+varying mediump vec3 xlv_TEXCOORD1;
+varying mediump vec3 xlv_TEXCOORD5;
+void main ()
+{
+  mediump vec4 outDiffuse_1;
+  mediump vec4 outEmission_2;
+  lowp vec3 tmpvar_3;
+  tmpvar_3 = xlv_TEXCOORD1;
+  lowp vec4 tmpvar_4;
+  tmpvar_4 = texture2D (_MainTex, xlv_TEXCOORD0);
+  mediump vec4 outDiffuseOcclusion_5;
+  mediump vec4 outNormal_6;
+  mediump vec4 emission_7;
+  lowp vec4 tmpvar_8;
+  tmpvar_8.w = 1.0;
+  tmpvar_8.xyz = tmpvar_4.xyz;
+  outDiffuseOcclusion_5 = tmpvar_8;
+  lowp vec4 tmpvar_9;
+  tmpvar_9.w = 1.0;
+  tmpvar_9.xyz = ((tmpvar_3 * 0.5) + 0.5);
+  outNormal_6 = tmpvar_9;
+  lowp vec4 tmpvar_10;
+  tmpvar_10.w = 1.0;
+  tmpvar_10.xyz = vec3(0.0, 0.0, 0.0);
+  emission_7 = tmpvar_10;
+  emission_7.xyz = (emission_7.xyz + (tmpvar_4.xyz * xlv_TEXCOORD5));
+  outDiffuse_1.xyz = outDiffuseOcclusion_5.xyz;
+  outEmission_2.w = emission_7.w;
+  outDiffuse_1.w = 1.0;
+  outEmission_2.xyz = exp2(-(emission_7.xyz));
+  gl_FragData[0] = outDiffuse_1;
+  gl_FragData[1] = vec4(0.0, 0.0, 0.0, 0.0);
+  gl_FragData[2] = outNormal_6;
+  gl_FragData[3] = outEmission_2;
+}
+
+
+#endif
+"
+}
+SubProgram "gles3 " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "HDR_LIGHT_PREPASS_OFF" }
+"!!GLES3
+#ifdef VERTEX
+#version 300 es
+precision highp float;
+precision highp int;
+uniform 	vec4 _Time;
+uniform 	vec4 _SinTime;
+uniform 	vec4 _CosTime;
+uniform 	vec4 unity_DeltaTime;
+uniform 	vec3 _WorldSpaceCameraPos;
+uniform 	vec4 _ProjectionParams;
+uniform 	vec4 _ScreenParams;
+uniform 	vec4 _ZBufferParams;
+uniform 	vec4 unity_OrthoParams;
+uniform 	vec4 unity_CameraWorldClipPlanes[6];
+uniform 	mat4 unity_CameraProjection;
+uniform 	mat4 unity_CameraInvProjection;
+uniform 	vec4 _WorldSpaceLightPos0;
+uniform 	vec4 _LightPositionRange;
+uniform 	vec4 unity_4LightPosX0;
+uniform 	vec4 unity_4LightPosY0;
+uniform 	vec4 unity_4LightPosZ0;
+uniform 	mediump vec4 unity_4LightAtten0;
+uniform 	mediump vec4 unity_LightColor[8];
+uniform 	vec4 unity_LightPosition[8];
+uniform 	mediump vec4 unity_LightAtten[8];
+uniform 	vec4 unity_SpotDirection[8];
+uniform 	mediump vec4 unity_SHAr;
+uniform 	mediump vec4 unity_SHAg;
+uniform 	mediump vec4 unity_SHAb;
+uniform 	mediump vec4 unity_SHBr;
+uniform 	mediump vec4 unity_SHBg;
+uniform 	mediump vec4 unity_SHBb;
+uniform 	mediump vec4 unity_SHC;
+uniform 	mediump vec3 unity_LightColor0;
+uniform 	mediump vec3 unity_LightColor1;
+uniform 	mediump vec3 unity_LightColor2;
+uniform 	mediump vec3 unity_LightColor3;
+uniform 	vec4 unity_ShadowSplitSpheres[4];
+uniform 	vec4 unity_ShadowSplitSqRadii;
+uniform 	vec4 unity_LightShadowBias;
+uniform 	vec4 _LightSplitsNear;
+uniform 	vec4 _LightSplitsFar;
+uniform 	mat4 unity_World2Shadow[4];
+uniform 	mediump vec4 _LightShadowData;
+uniform 	vec4 unity_ShadowFadeCenterAndType;
+uniform 	mat4 glstate_matrix_mvp;
+uniform 	mat4 glstate_matrix_modelview0;
+uniform 	mat4 glstate_matrix_invtrans_modelview0;
+uniform 	mat4 _Object2World;
+uniform 	mat4 _World2Object;
+uniform 	vec4 unity_LODFade;
+uniform 	mat4 glstate_matrix_transpose_modelview0;
+uniform 	mat4 glstate_matrix_projection;
+uniform 	lowp vec4 glstate_lightmodel_ambient;
+uniform 	mat4 unity_MatrixV;
+uniform 	mat4 unity_MatrixVP;
+uniform 	lowp vec4 unity_AmbientSky;
+uniform 	lowp vec4 unity_AmbientEquator;
+uniform 	lowp vec4 unity_AmbientGround;
+uniform 	lowp vec4 unity_FogColor;
+uniform 	vec4 unity_FogParams;
+uniform 	vec4 unity_LightmapST;
+uniform 	vec4 unity_DynamicLightmapST;
+uniform 	vec4 unity_SpecCube0_BoxMax;
+uniform 	vec4 unity_SpecCube0_BoxMin;
+uniform 	vec4 unity_SpecCube0_ProbePosition;
+uniform 	mediump vec4 unity_SpecCube0_HDR;
+uniform 	vec4 unity_SpecCube1_BoxMax;
+uniform 	vec4 unity_SpecCube1_BoxMin;
+uniform 	vec4 unity_SpecCube1_ProbePosition;
+uniform 	mediump vec4 unity_SpecCube1_HDR;
+uniform 	lowp vec4 unity_ColorSpaceGrey;
+uniform 	lowp vec4 unity_ColorSpaceDouble;
+uniform 	mediump vec4 unity_ColorSpaceDielectricSpec;
+uniform 	mediump vec4 unity_ColorSpaceLuminance;
+uniform 	mediump vec4 unity_Lightmap_HDR;
+uniform 	mediump vec4 unity_DynamicLightmap_HDR;
+uniform 	lowp vec4 _LightColor0;
+uniform 	lowp vec4 _SpecColor;
+uniform 	mediump vec4 unity_LightGammaCorrectionConsts;
+uniform 	vec4 _MainTex_ST;
+uniform 	lowp vec4 unity_Ambient;
+in highp vec4 in_POSITION0;
+in highp vec3 in_NORMAL0;
+in highp vec4 in_TEXCOORD0;
+out highp vec2 vs_TEXCOORD0;
+out mediump vec3 vs_TEXCOORD1;
+out highp vec3 vs_TEXCOORD2;
+out highp vec4 vs_TEXCOORD4;
+out mediump vec3 vs_TEXCOORD5;
+highp vec4 t0;
+highp vec3 t1;
+mediump vec4 t16_1;
+mediump vec3 t16_2;
+mediump vec3 t16_3;
+highp float t12;
+void main()
+{
+    //Instruction 269
+    //MUL
+    t0 = in_POSITION0.yyyy * glstate_matrix_mvp[1];
+    //Instruction 270
+    //MAD
+    t0 = glstate_matrix_mvp[0] * in_POSITION0.xxxx + t0;
+    //Instruction 271
+    //MAD
+    t0 = glstate_matrix_mvp[2] * in_POSITION0.zzzz + t0;
+    //Instruction 272
+    //MAD
+    gl_Position = glstate_matrix_mvp[3] * in_POSITION0.wwww + t0;
+    //Instruction 273
+    //MAD
+    vs_TEXCOORD0.xy = in_TEXCOORD0.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+    //Instruction 274
+    //MUL
+    t0.x = in_NORMAL0.x * _World2Object[0].x;
+    //Instruction 275
+    //MUL
+    t0.y = in_NORMAL0.x * _World2Object[1].x;
+    //Instruction 276
+    //MUL
+    t0.z = in_NORMAL0.x * _World2Object[2].x;
+    //Instruction 277
+    //MUL
+    t1.x = in_NORMAL0.y * _World2Object[0].y;
+    //Instruction 278
+    //MUL
+    t1.y = in_NORMAL0.y * _World2Object[1].y;
+    //Instruction 279
+    //MUL
+    t1.z = in_NORMAL0.y * _World2Object[2].y;
+    //Instruction 280
+    //ADD
+    t0.xyz = t0.xyz + t1.xyz;
+    //Instruction 281
+    //MUL
+    t1.x = in_NORMAL0.z * _World2Object[0].z;
+    //Instruction 282
+    //MUL
+    t1.y = in_NORMAL0.z * _World2Object[1].z;
+    //Instruction 283
+    //MUL
+    t1.z = in_NORMAL0.z * _World2Object[2].z;
+    //Instruction 284
+    //ADD
+    t0.xyz = t0.xyz + t1.xyz;
+    //Instruction 285
+    //DP3
+    t12 = dot(t0.xyz, t0.xyz);
+    //Instruction 286
+    //RSQ
+    t12 = inversesqrt(t12);
+    //Instruction 287
+    //MUL
+    t0.xyz = vec3(t12) * t0.xyz;
+    //Instruction 288
+    //MOV
+    vs_TEXCOORD1.xyz = t0.xyz;
+    //Instruction 289
+    //MUL
+    t1.xyz = in_POSITION0.yyy * _Object2World[1].xyz;
+    //Instruction 290
+    //MAD
+    t1.xyz = _Object2World[0].xyz * in_POSITION0.xxx + t1.xyz;
+    //Instruction 291
+    //MAD
+    t1.xyz = _Object2World[2].xyz * in_POSITION0.zzz + t1.xyz;
+    //Instruction 292
+    //MAD
+    vs_TEXCOORD2.xyz = _Object2World[3].xyz * in_POSITION0.www + t1.xyz;
+    //Instruction 293
+    //MOV
+    vs_TEXCOORD4 = vec4(0.0, 0.0, 0.0, 0.0);
+    //Instruction 294
+    //MUL
+    t16_2.x = t0.y * t0.y;
+    //Instruction 295
+    //MAD
+    t16_2.x = t0.x * t0.x + (-t16_2.x);
+    //Instruction 296
+    //MUL
+    t16_1 = t0.yzzx * t0.xyzz;
+    //Instruction 297
+    //DP4
+    t16_3.x = dot(unity_SHBr, t16_1);
+    //Instruction 298
+    //DP4
+    t16_3.y = dot(unity_SHBg, t16_1);
+    //Instruction 299
+    //DP4
+    t16_3.z = dot(unity_SHBb, t16_1);
+    //Instruction 300
+    //MAD
+    t16_2.xyz = unity_SHC.xyz * t16_2.xxx + t16_3.xyz;
+    //Instruction 301
+    //MOV
+    t0.w = 1.0;
+    //Instruction 302
+    //DP4
+    t16_3.x = dot(unity_SHAr, t0);
+    //Instruction 303
+    //DP4
+    t16_3.y = dot(unity_SHAg, t0);
+    //Instruction 304
+    //DP4
+    t16_3.z = dot(unity_SHAb, t0);
+    //Instruction 305
+    //ADD
+    vs_TEXCOORD5.xyz = t16_2.xyz + t16_3.xyz;
+    //Instruction 306
+    //RET
+    return;
+}
+
+#endif
+#ifdef FRAGMENT
+#version 300 es
+precision highp float;
+precision highp int;
+uniform lowp sampler2D _MainTex;
+in highp vec2 vs_TEXCOORD0;
+in mediump vec3 vs_TEXCOORD1;
+in mediump vec3 vs_TEXCOORD5;
+layout(location = 0) out mediump vec4 SV_Target0;
+layout(location = 1) out mediump vec4 SV_Target1;
+layout(location = 2) out mediump vec4 SV_Target2;
+layout(location = 3) out mediump vec4 SV_Target3;
+lowp vec3 t10_0;
+mediump vec3 t16_1;
+lowp vec3 t10_2;
+void main()
+{
+    //Instruction 258
+    //MOV
+    SV_Target0.w = 1.0;
+    //Instruction 259
+    //SAMPLE
+    t10_0.xyz = texture(_MainTex, vs_TEXCOORD0.xy).xyz;
+    //Instruction 260
+    //MOV
+    SV_Target0.xyz = t10_0.xyz;
+    //Instruction 261
+    //MUL
+    t16_1.xyz = t10_0.xyz * vs_TEXCOORD5.xyz;
+    //Instruction 262
+    //EXP
+    SV_Target3.xyz = exp2((-t16_1.xyz));
+    //Instruction 263
+    //MOV
+    SV_Target1 = vec4(0.0, 0.0, 0.0, 0.0);
+    //Instruction 264
+    //MAD
+    t10_2.xyz = vs_TEXCOORD1.xyz * vec3(0.5, 0.5, 0.5) + vec3(0.5, 0.5, 0.5);
+    //Instruction 265
+    //MOV
+    SV_Target2.xyz = t10_2.xyz;
+    //Instruction 266
+    //MOV
+    SV_Target2.w = 1.0;
+    //Instruction 267
+    //MOV
+    SV_Target3.w = 1.0;
+    //Instruction 268
+    //RET
+    return;
+}
+
+#endif
+"
+}
+SubProgram "gles " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "UNITY_HDR_ON" }
+"!!GLES
+#version 100
+
+#ifdef VERTEX
+attribute vec4 _glesVertex;
+attribute vec3 _glesNormal;
+attribute vec4 _glesMultiTexCoord0;
+uniform mediump vec4 unity_SHAr;
+uniform mediump vec4 unity_SHAg;
+uniform mediump vec4 unity_SHAb;
+uniform mediump vec4 unity_SHBr;
+uniform mediump vec4 unity_SHBg;
+uniform mediump vec4 unity_SHBb;
+uniform mediump vec4 unity_SHC;
+uniform highp mat4 glstate_matrix_mvp;
+uniform highp mat4 _Object2World;
+uniform highp mat4 _World2Object;
+uniform highp vec4 _MainTex_ST;
+varying highp vec2 xlv_TEXCOORD0;
+varying mediump vec3 xlv_TEXCOORD1;
+varying highp vec3 xlv_TEXCOORD2;
+varying highp vec4 xlv_TEXCOORD4;
+varying mediump vec3 xlv_TEXCOORD5;
+void main ()
+{
+  lowp vec3 worldNormal_1;
+  mediump vec3 tmpvar_2;
+  highp vec4 tmpvar_3;
+  highp vec4 v_4;
+  v_4.x = _World2Object[0].x;
+  v_4.y = _World2Object[1].x;
+  v_4.z = _World2Object[2].x;
+  v_4.w = _World2Object[3].x;
+  highp vec4 v_5;
+  v_5.x = _World2Object[0].y;
+  v_5.y = _World2Object[1].y;
+  v_5.z = _World2Object[2].y;
+  v_5.w = _World2Object[3].y;
+  highp vec4 v_6;
+  v_6.x = _World2Object[0].z;
+  v_6.y = _World2Object[1].z;
+  v_6.z = _World2Object[2].z;
+  v_6.w = _World2Object[3].z;
+  highp vec3 tmpvar_7;
+  tmpvar_7 = normalize(((
+    (v_4.xyz * _glesNormal.x)
+   + 
+    (v_5.xyz * _glesNormal.y)
+  ) + (v_6.xyz * _glesNormal.z)));
+  worldNormal_1 = tmpvar_7;
+  tmpvar_2 = worldNormal_1;
+  tmpvar_3.zw = vec2(0.0, 0.0);
+  tmpvar_3.xy = vec2(0.0, 0.0);
+  lowp vec4 tmpvar_8;
+  tmpvar_8.w = 1.0;
+  tmpvar_8.xyz = worldNormal_1;
+  mediump vec4 normal_9;
+  normal_9 = tmpvar_8;
+  mediump vec3 x2_10;
+  mediump vec3 x1_11;
+  x1_11.x = dot (unity_SHAr, normal_9);
+  x1_11.y = dot (unity_SHAg, normal_9);
+  x1_11.z = dot (unity_SHAb, normal_9);
+  mediump vec4 tmpvar_12;
+  tmpvar_12 = (normal_9.xyzz * normal_9.yzzx);
+  x2_10.x = dot (unity_SHBr, tmpvar_12);
+  x2_10.y = dot (unity_SHBg, tmpvar_12);
+  x2_10.z = dot (unity_SHBb, tmpvar_12);
+  gl_Position = (glstate_matrix_mvp * _glesVertex);
+  xlv_TEXCOORD0 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
+  xlv_TEXCOORD1 = tmpvar_2;
+  xlv_TEXCOORD2 = (_Object2World * _glesVertex).xyz;
+  xlv_TEXCOORD4 = tmpvar_3;
+  xlv_TEXCOORD5 = ((x2_10 + (unity_SHC.xyz * 
+    ((normal_9.x * normal_9.x) - (normal_9.y * normal_9.y))
+  )) + x1_11);
+}
+
+
+#endif
+#ifdef FRAGMENT
+#extension GL_EXT_draw_buffers : enable
+uniform sampler2D _MainTex;
+varying highp vec2 xlv_TEXCOORD0;
+varying mediump vec3 xlv_TEXCOORD1;
+varying mediump vec3 xlv_TEXCOORD5;
+void main ()
+{
+  mediump vec4 outDiffuse_1;
+  lowp vec3 tmpvar_2;
+  tmpvar_2 = xlv_TEXCOORD1;
+  lowp vec4 tmpvar_3;
+  tmpvar_3 = texture2D (_MainTex, xlv_TEXCOORD0);
+  mediump vec4 outDiffuseOcclusion_4;
+  mediump vec4 outNormal_5;
+  mediump vec4 emission_6;
+  lowp vec4 tmpvar_7;
+  tmpvar_7.w = 1.0;
+  tmpvar_7.xyz = tmpvar_3.xyz;
+  outDiffuseOcclusion_4 = tmpvar_7;
+  lowp vec4 tmpvar_8;
+  tmpvar_8.w = 1.0;
+  tmpvar_8.xyz = ((tmpvar_2 * 0.5) + 0.5);
+  outNormal_5 = tmpvar_8;
+  lowp vec4 tmpvar_9;
+  tmpvar_9.w = 1.0;
+  tmpvar_9.xyz = vec3(0.0, 0.0, 0.0);
+  emission_6 = tmpvar_9;
+  emission_6.xyz = (emission_6.xyz + (tmpvar_3.xyz * xlv_TEXCOORD5));
+  outDiffuse_1.xyz = outDiffuseOcclusion_4.xyz;
+  outDiffuse_1.w = 1.0;
+  gl_FragData[0] = outDiffuse_1;
+  gl_FragData[1] = vec4(0.0, 0.0, 0.0, 0.0);
+  gl_FragData[2] = outNormal_5;
+  gl_FragData[3] = emission_6;
+}
+
+
+#endif
+"
+}
+SubProgram "gles3 " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "UNITY_HDR_ON" }
+"!!GLES3
+#ifdef VERTEX
+#version 300 es
+precision highp float;
+precision highp int;
+uniform 	vec4 _Time;
+uniform 	vec4 _SinTime;
+uniform 	vec4 _CosTime;
+uniform 	vec4 unity_DeltaTime;
+uniform 	vec3 _WorldSpaceCameraPos;
+uniform 	vec4 _ProjectionParams;
+uniform 	vec4 _ScreenParams;
+uniform 	vec4 _ZBufferParams;
+uniform 	vec4 unity_OrthoParams;
+uniform 	vec4 unity_CameraWorldClipPlanes[6];
+uniform 	mat4 unity_CameraProjection;
+uniform 	mat4 unity_CameraInvProjection;
+uniform 	vec4 _WorldSpaceLightPos0;
+uniform 	vec4 _LightPositionRange;
+uniform 	vec4 unity_4LightPosX0;
+uniform 	vec4 unity_4LightPosY0;
+uniform 	vec4 unity_4LightPosZ0;
+uniform 	mediump vec4 unity_4LightAtten0;
+uniform 	mediump vec4 unity_LightColor[8];
+uniform 	vec4 unity_LightPosition[8];
+uniform 	mediump vec4 unity_LightAtten[8];
+uniform 	vec4 unity_SpotDirection[8];
+uniform 	mediump vec4 unity_SHAr;
+uniform 	mediump vec4 unity_SHAg;
+uniform 	mediump vec4 unity_SHAb;
+uniform 	mediump vec4 unity_SHBr;
+uniform 	mediump vec4 unity_SHBg;
+uniform 	mediump vec4 unity_SHBb;
+uniform 	mediump vec4 unity_SHC;
+uniform 	mediump vec3 unity_LightColor0;
+uniform 	mediump vec3 unity_LightColor1;
+uniform 	mediump vec3 unity_LightColor2;
+uniform 	mediump vec3 unity_LightColor3;
+uniform 	vec4 unity_ShadowSplitSpheres[4];
+uniform 	vec4 unity_ShadowSplitSqRadii;
+uniform 	vec4 unity_LightShadowBias;
+uniform 	vec4 _LightSplitsNear;
+uniform 	vec4 _LightSplitsFar;
+uniform 	mat4 unity_World2Shadow[4];
+uniform 	mediump vec4 _LightShadowData;
+uniform 	vec4 unity_ShadowFadeCenterAndType;
+uniform 	mat4 glstate_matrix_mvp;
+uniform 	mat4 glstate_matrix_modelview0;
+uniform 	mat4 glstate_matrix_invtrans_modelview0;
+uniform 	mat4 _Object2World;
+uniform 	mat4 _World2Object;
+uniform 	vec4 unity_LODFade;
+uniform 	mat4 glstate_matrix_transpose_modelview0;
+uniform 	mat4 glstate_matrix_projection;
+uniform 	lowp vec4 glstate_lightmodel_ambient;
+uniform 	mat4 unity_MatrixV;
+uniform 	mat4 unity_MatrixVP;
+uniform 	lowp vec4 unity_AmbientSky;
+uniform 	lowp vec4 unity_AmbientEquator;
+uniform 	lowp vec4 unity_AmbientGround;
+uniform 	lowp vec4 unity_FogColor;
+uniform 	vec4 unity_FogParams;
+uniform 	vec4 unity_LightmapST;
+uniform 	vec4 unity_DynamicLightmapST;
+uniform 	vec4 unity_SpecCube0_BoxMax;
+uniform 	vec4 unity_SpecCube0_BoxMin;
+uniform 	vec4 unity_SpecCube0_ProbePosition;
+uniform 	mediump vec4 unity_SpecCube0_HDR;
+uniform 	vec4 unity_SpecCube1_BoxMax;
+uniform 	vec4 unity_SpecCube1_BoxMin;
+uniform 	vec4 unity_SpecCube1_ProbePosition;
+uniform 	mediump vec4 unity_SpecCube1_HDR;
+uniform 	lowp vec4 unity_ColorSpaceGrey;
+uniform 	lowp vec4 unity_ColorSpaceDouble;
+uniform 	mediump vec4 unity_ColorSpaceDielectricSpec;
+uniform 	mediump vec4 unity_ColorSpaceLuminance;
+uniform 	mediump vec4 unity_Lightmap_HDR;
+uniform 	mediump vec4 unity_DynamicLightmap_HDR;
+uniform 	lowp vec4 _LightColor0;
+uniform 	lowp vec4 _SpecColor;
+uniform 	mediump vec4 unity_LightGammaCorrectionConsts;
+uniform 	vec4 _MainTex_ST;
+uniform 	lowp vec4 unity_Ambient;
+in highp vec4 in_POSITION0;
+in highp vec3 in_NORMAL0;
+in highp vec4 in_TEXCOORD0;
+out highp vec2 vs_TEXCOORD0;
+out mediump vec3 vs_TEXCOORD1;
+out highp vec3 vs_TEXCOORD2;
+out highp vec4 vs_TEXCOORD4;
+out mediump vec3 vs_TEXCOORD5;
+highp vec4 t0;
+highp vec3 t1;
+mediump vec4 t16_1;
+mediump vec3 t16_2;
+mediump vec3 t16_3;
+highp float t12;
+void main()
+{
+    //Instruction 202
+    //MUL
+    t0 = in_POSITION0.yyyy * glstate_matrix_mvp[1];
+    //Instruction 203
+    //MAD
+    t0 = glstate_matrix_mvp[0] * in_POSITION0.xxxx + t0;
+    //Instruction 204
+    //MAD
+    t0 = glstate_matrix_mvp[2] * in_POSITION0.zzzz + t0;
+    //Instruction 205
+    //MAD
+    gl_Position = glstate_matrix_mvp[3] * in_POSITION0.wwww + t0;
+    //Instruction 206
+    //MAD
+    vs_TEXCOORD0.xy = in_TEXCOORD0.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+    //Instruction 207
+    //MUL
+    t0.x = in_NORMAL0.x * _World2Object[0].x;
+    //Instruction 208
+    //MUL
+    t0.y = in_NORMAL0.x * _World2Object[1].x;
+    //Instruction 209
+    //MUL
+    t0.z = in_NORMAL0.x * _World2Object[2].x;
+    //Instruction 210
+    //MUL
+    t1.x = in_NORMAL0.y * _World2Object[0].y;
+    //Instruction 211
+    //MUL
+    t1.y = in_NORMAL0.y * _World2Object[1].y;
+    //Instruction 212
+    //MUL
+    t1.z = in_NORMAL0.y * _World2Object[2].y;
+    //Instruction 213
+    //ADD
+    t0.xyz = t0.xyz + t1.xyz;
+    //Instruction 214
+    //MUL
+    t1.x = in_NORMAL0.z * _World2Object[0].z;
+    //Instruction 215
+    //MUL
+    t1.y = in_NORMAL0.z * _World2Object[1].z;
+    //Instruction 216
+    //MUL
+    t1.z = in_NORMAL0.z * _World2Object[2].z;
+    //Instruction 217
+    //ADD
+    t0.xyz = t0.xyz + t1.xyz;
+    //Instruction 218
+    //DP3
+    t12 = dot(t0.xyz, t0.xyz);
+    //Instruction 219
+    //RSQ
+    t12 = inversesqrt(t12);
+    //Instruction 220
+    //MUL
+    t0.xyz = vec3(t12) * t0.xyz;
+    //Instruction 221
+    //MOV
+    vs_TEXCOORD1.xyz = t0.xyz;
+    //Instruction 222
+    //MUL
+    t1.xyz = in_POSITION0.yyy * _Object2World[1].xyz;
+    //Instruction 223
+    //MAD
+    t1.xyz = _Object2World[0].xyz * in_POSITION0.xxx + t1.xyz;
+    //Instruction 224
+    //MAD
+    t1.xyz = _Object2World[2].xyz * in_POSITION0.zzz + t1.xyz;
+    //Instruction 225
+    //MAD
+    vs_TEXCOORD2.xyz = _Object2World[3].xyz * in_POSITION0.www + t1.xyz;
+    //Instruction 226
+    //MOV
+    vs_TEXCOORD4 = vec4(0.0, 0.0, 0.0, 0.0);
+    //Instruction 227
+    //MUL
+    t16_2.x = t0.y * t0.y;
+    //Instruction 228
+    //MAD
+    t16_2.x = t0.x * t0.x + (-t16_2.x);
+    //Instruction 229
+    //MUL
+    t16_1 = t0.yzzx * t0.xyzz;
+    //Instruction 230
+    //DP4
+    t16_3.x = dot(unity_SHBr, t16_1);
+    //Instruction 231
+    //DP4
+    t16_3.y = dot(unity_SHBg, t16_1);
+    //Instruction 232
+    //DP4
+    t16_3.z = dot(unity_SHBb, t16_1);
+    //Instruction 233
+    //MAD
+    t16_2.xyz = unity_SHC.xyz * t16_2.xxx + t16_3.xyz;
+    //Instruction 234
+    //MOV
+    t0.w = 1.0;
+    //Instruction 235
+    //DP4
+    t16_3.x = dot(unity_SHAr, t0);
+    //Instruction 236
+    //DP4
+    t16_3.y = dot(unity_SHAg, t0);
+    //Instruction 237
+    //DP4
+    t16_3.z = dot(unity_SHAb, t0);
+    //Instruction 238
+    //ADD
+    vs_TEXCOORD5.xyz = t16_2.xyz + t16_3.xyz;
+    //Instruction 239
+    //RET
+    return;
+}
+
+#endif
+#ifdef FRAGMENT
+#version 300 es
+precision highp float;
+precision highp int;
+uniform lowp sampler2D _MainTex;
+in highp vec2 vs_TEXCOORD0;
+in mediump vec3 vs_TEXCOORD1;
+in mediump vec3 vs_TEXCOORD5;
+layout(location = 0) out mediump vec4 SV_Target0;
+layout(location = 1) out mediump vec4 SV_Target1;
+layout(location = 2) out mediump vec4 SV_Target2;
+layout(location = 3) out mediump vec4 SV_Target3;
+lowp vec3 t10_0;
+lowp vec3 t10_1;
+void main()
+{
+    //Instruction 192
+    //MOV
+    SV_Target0.w = 1.0;
+    //Instruction 193
+    //SAMPLE
+    t10_0.xyz = texture(_MainTex, vs_TEXCOORD0.xy).xyz;
+    //Instruction 194
+    //MOV
+    SV_Target0.xyz = t10_0.xyz;
+    //Instruction 195
+    //MUL
+    SV_Target3.xyz = t10_0.xyz * vs_TEXCOORD5.xyz;
+    //Instruction 196
+    //MOV
+    SV_Target1 = vec4(0.0, 0.0, 0.0, 0.0);
+    //Instruction 197
+    //MAD
+    t10_1.xyz = vs_TEXCOORD1.xyz * vec3(0.5, 0.5, 0.5) + vec3(0.5, 0.5, 0.5);
+    //Instruction 198
+    //MOV
+    SV_Target2.xyz = t10_1.xyz;
+    //Instruction 199
+    //MOV
+    SV_Target2.w = 1.0;
+    //Instruction 200
+    //MOV
+    SV_Target3.w = 1.0;
+    //Instruction 201
+    //RET
+    return;
+}
+
+#endif
+"
+}
+}
+Program "fp" {
+SubProgram "gles " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "HDR_LIGHT_PREPASS_OFF" }
+"!!GLES"
+}
+SubProgram "gles3 " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "HDR_LIGHT_PREPASS_OFF" }
+"!!GLES3"
+}
+SubProgram "gles " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "UNITY_HDR_ON" }
+"!!GLES"
+}
+SubProgram "gles3 " {
+Keywords { "LIGHTMAP_OFF" "DIRLIGHTMAP_OFF" "DYNAMICLIGHTMAP_OFF" "UNITY_HDR_ON" }
+"!!GLES3"
+}
+}
+ }
+}
+Fallback "Mobile/VertexLit"
+}                               Unlit-Normalš  Shader "Unlit/Texture" {
+Properties {
+ _MainTex ("Base (RGB)", 2D) = "white" { }
+}
+SubShader { 
+ LOD 100
+ Tags { "RenderType"="Opaque" }
+ Pass {
+  Tags { "RenderType"="Opaque" }
+  GpuProgramID 35353
+Program "vp" {
+SubProgram "gles " {
+"!!GLES
+#version 100
+
+#ifdef VERTEX
+attribute vec4 _glesVertex;
+attribute vec4 _glesMultiTexCoord0;
+uniform highp mat4 glstate_matrix_mvp;
+uniform highp vec4 _MainTex_ST;
+varying mediump vec2 xlv_TEXCOORD0;
+void main ()
+{
+  mediump vec2 tmpvar_1;
+  tmpvar_1 = ((_glesMultiTexCoord0.xy * _MainTex_ST.xy) + _MainTex_ST.zw);
+  gl_Position = (glstate_matrix_mvp * _glesVertex);
+  xlv_TEXCOORD0 = tmpvar_1;
+}
+
+
+#endif
+#ifdef FRAGMENT
+uniform sampler2D _MainTex;
+varying mediump vec2 xlv_TEXCOORD0;
+void main ()
+{
+  lowp vec4 col_1;
+  col_1.xyz = texture2D (_MainTex, xlv_TEXCOORD0).xyz;
+  col_1.w = 1.0;
+  gl_FragData[0] = col_1;
+}
+
+
+#endif
+"
+}
+SubProgram "gles3 " {
+"!!GLES3
+#ifdef VERTEX
+#version 300 es
+precision highp float;
+precision highp int;
+uniform 	vec4 _Time;
+uniform 	vec4 _SinTime;
+uniform 	vec4 _CosTime;
+uniform 	vec4 unity_DeltaTime;
+uniform 	vec3 _WorldSpaceCameraPos;
+uniform 	vec4 _ProjectionParams;
+uniform 	vec4 _ScreenParams;
+uniform 	vec4 _ZBufferParams;
+uniform 	vec4 unity_OrthoParams;
+uniform 	vec4 unity_CameraWorldClipPlanes[6];
+uniform 	mat4 unity_CameraProjection;
+uniform 	mat4 unity_CameraInvProjection;
+uniform 	vec4 _WorldSpaceLightPos0;
+uniform 	vec4 _LightPositionRange;
+uniform 	vec4 unity_4LightPosX0;
+uniform 	vec4 unity_4LightPosY0;
+uniform 	vec4 unity_4LightPosZ0;
+uniform 	mediump vec4 unity_4LightAtten0;
+uniform 	mediump vec4 unity_LightColor[8];
+uniform 	vec4 unity_LightPosition[8];
+uniform 	mediump vec4 unity_LightAtten[8];
+uniform 	vec4 unity_SpotDirection[8];
+uniform 	mediump vec4 unity_SHAr;
+uniform 	mediump vec4 unity_SHAg;
+uniform 	mediump vec4 unity_SHAb;
+uniform 	mediump vec4 unity_SHBr;
+uniform 	mediump vec4 unity_SHBg;
+uniform 	mediump vec4 unity_SHBb;
+uniform 	mediump vec4 unity_SHC;
+uniform 	mediump vec3 unity_LightColor0;
+uniform 	mediump vec3 unity_LightColor1;
+uniform 	mediump vec3 unity_LightColor2;
+uniform 	mediump vec3 unity_LightColor3;
+uniform 	vec4 unity_ShadowSplitSpheres[4];
+uniform 	vec4 unity_ShadowSplitSqRadii;
+uniform 	vec4 unity_LightShadowBias;
+uniform 	vec4 _LightSplitsNear;
+uniform 	vec4 _LightSplitsFar;
+uniform 	mat4 unity_World2Shadow[4];
+uniform 	mediump vec4 _LightShadowData;
+uniform 	vec4 unity_ShadowFadeCenterAndType;
+uniform 	mat4 glstate_matrix_mvp;
+uniform 	mat4 glstate_matrix_modelview0;
+uniform 	mat4 glstate_matrix_invtrans_modelview0;
+uniform 	mat4 _Object2World;
+uniform 	mat4 _World2Object;
+uniform 	vec4 unity_LODFade;
+uniform 	mat4 glstate_matrix_transpose_modelview0;
+uniform 	mat4 glstate_matrix_projection;
+uniform 	lowp vec4 glstate_lightmodel_ambient;
+uniform 	mat4 unity_MatrixV;
+uniform 	mat4 unity_MatrixVP;
+uniform 	lowp vec4 unity_AmbientSky;
+uniform 	lowp vec4 unity_AmbientEquator;
+uniform 	lowp vec4 unity_AmbientGround;
+uniform 	lowp vec4 unity_FogColor;
+uniform 	vec4 unity_FogParams;
+uniform 	vec4 unity_LightmapST;
+uniform 	vec4 unity_DynamicLightmapST;
+uniform 	vec4 unity_SpecCube0_BoxMax;
+uniform 	vec4 unity_SpecCube0_BoxMin;
+uniform 	vec4 unity_SpecCube0_ProbePosition;
+uniform 	mediump vec4 unity_SpecCube0_HDR;
+uniform 	vec4 unity_SpecCube1_BoxMax;
+uniform 	vec4 unity_SpecCube1_BoxMin;
+uniform 	vec4 unity_SpecCube1_ProbePosition;
+uniform 	mediump vec4 unity_SpecCube1_HDR;
+uniform 	lowp vec4 unity_ColorSpaceGrey;
+uniform 	lowp vec4 unity_ColorSpaceDouble;
+uniform 	mediump vec4 unity_ColorSpaceDielectricSpec;
+uniform 	mediump vec4 unity_ColorSpaceLuminance;
+uniform 	mediump vec4 unity_Lightmap_HDR;
+uniform 	mediump vec4 unity_DynamicLightmap_HDR;
+uniform 	vec4 _MainTex_ST;
+in highp vec4 in_POSITION0;
+in highp vec2 in_TEXCOORD0;
+out mediump vec2 vs_TEXCOORD0;
+highp vec4 t0;
+void main()
+{
+    //Instruction 2834
+    //MUL
+    t0 = in_POSITION0.yyyy * glstate_matrix_mvp[1];
+    //Instruction 2835
+    //MAD
+    t0 = glstate_matrix_mvp[0] * in_POSITION0.xxxx + t0;
+    //Instruction 2836
+    //MAD
+    t0 = glstate_matrix_mvp[2] * in_POSITION0.zzzz + t0;
+    //Instruction 2837
+    //MAD
+    gl_Position = glstate_matrix_mvp[3] * in_POSITION0.wwww + t0;
+    //Instruction 2838
+    //MAD
+    t0.xy = in_TEXCOORD0.xy * _MainTex_ST.xy + _MainTex_ST.zw;
+    //Instruction 2839
+    //MOV
+    vs_TEXCOORD0.xy = t0.xy;
+    //Instruction 2840
+    //RET
+    return;
+}
+
+#endif
+#ifdef FRAGMENT
+#version 300 es
+precision highp float;
+precision highp int;
+uniform lowp sampler2D _MainTex;
+in mediump vec2 vs_TEXCOORD0;
+layout(location = 0) out lowp vec4 SV_Target0;
+lowp vec3 t10_0;
+void main()
+{
+    //Instruction 2830
+    //SAMPLE
+    t10_0.xyz = texture(_MainTex, vs_TEXCOORD0.xy).xyz;
+    //Instruction 2831
+    //MOV
+    SV_Target0.xyz = t10_0.xyz;
+    //Instruction 2832
+    //MOV
+    SV_Target0.w = 1.0;
+    //Instruction 2833
+    //RET
+    return;
+}
+
+#endif
+"
+}
+}
+Program "fp" {
+SubProgram "gles " {
+"!!GLES"
+}
+SubProgram "gles3 " {
+"!!GLES3"
+}
+}
+ }
+}
+}                        Shader "DepthMask" {
+SubShader { 
+ Tags { "QUEUE"="Geometry-10" }
+ Pass {
+  Tags { "QUEUE"="Geometry-10" }
+  ColorMask 0
+ }
+}
+}                   VideoBackground 5  Shader "Custom/VideoBackground" {
+Properties {
+ _MainTex ("Base (RGB)", 2D) = "white" { }
+}
+SubShader { 
+ Tags { "QUEUE"="Geometry" "RenderType"="Opaque" }
+ Pass {
+  Tags { "QUEUE"="Geometry" "RenderType"="Opaque" }
+  ZWrite Off
+  Cull Off
+  SetTexture [_MainTex] { combine texture }
+ }
+}
+Fallback "Diffuse"
+}                                     	   BagAvatar   ô     ÿÿÿÿÿÿÿÿ              aþ?]£ž>òƒ@    Zˆ(´       €  €?  €?ÿÿ?ÿÿ?  €?   aþ?]£ž>òƒ@    Zˆ(´       €  €?  €?ÿÿ?ÿÿ?  €?                                     €?  €?  €?  €?  €?                   ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ   ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ           ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ   
+ò>>ø=>ø=˜F=˜F=à<à<>ø<
+ò”>˜F<˜F=˜Æ;˜Æ;˜Æ<˜Æ<
+ò”<
+ò”<˜Æ;˜Æ;à;à;               ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ  €?   ?   ?   ?   ?ÍÌL=ÍÌL=                ÿÿÿÿ                              €?  €?  €?  €?  €?                                  bagTag           €D  ÎC                          ÈB              :   ÂEÀÍÌÌ?    ¸EÀHáÚ¿    ¸EÀ)\Ï?    ÂEÀš™Ù¿    ¸E@…ëÑ?    ázD@33Ó¿    ¸E@{Î?    …ëA@®Gá¿    ázD@ÂÕ¿    ®GA@\â?      @@¸å?    )\?@ffæ¿    R¸>@q=ê?    )\?@®ç¿    ÍÌ<@ÍÌì¿    ìQ8@=
+÷¿    ÍÌ<@{î¿    ®7@=
+÷¿    ff6@š™ù?    Â5@š™ù?    ¸5@ö(ü¿    áz4@¤pý?    áz4@ö(ü¿    
+×3@R¸þ¿    \2@R¸þ?    ®G1@×£ @    ®G1@   À    R¸.@…ëÀ    {.@…ë@    ¤p-@…ëÀ    ÍÌ,@…ë@    …+@33À    Há*@33@    ìQ(@
+×À    =
+'@
+×@    ®'À
+×@    ÍÌ,À\@    ¤p-À
+×À    ®G1À33À    \2À   @    
+×3À¤pý?    ff6ÀHáú?    =
+7À×£ À    q=:ÀHáú¿    Há:ÀHáú¿    )\?À®ç?    )\?Àffæ?    ®GAÀ{î¿    …ëAÀ®Gá?    …ëAÀq=ê¿    33CÀ®ç¿    ázDÀÂÕ?    ázDÀ33Ó?    ázDÀ®Gá¿    ¸EÀ…ëÑ?    ¸EÀ¤pÝ¿    ÂE@{Î¿    ÂE@…Ë?    ¨     8 9 8  7  5  5  6 5  4 5 6 2 5 4 3 2 4 0 2 3 1 2 0 / 1 0 . / 0 , / . - , . ) , - + , ) * + ) & * ) ( & ) ' & ( $ & ' % & $ ! % $ # ! $ " ! #   ! "  !                                                                
+     
+ 	  
+   	                           €D  ÎC        @     ÈB €šC  ÈB  NC              *       Æ       ,       Ç       .           	   BagEffect                    )       Æ       +       Ç       -              CollectionEffect 1             (       ô5¿        ô5?Ha†B¸A33&Â  €?  €?ò½Š@                        '       ô5¿        ô5?‡Bš™©@\1Â  €?  €?  €?                        (          @  €?  €?          À?         €?          €?  €?                                   €?                         @         €?          €?  €?                                   €?                      ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ      €?         €?          €?  €?                                   €?                      5úŽ<         €?          €?  €?                                   €?                      ÍÌÌ=  €?è        ÍÌL>R“"Béœ@  €?  €?  €?  ´C                             ´B         €?          €?  €?                                   €?                                                   À?         €?                     ‰ˆ>                     ÛI?         €?          €?  €?                                   €?                         þÿ²ÿÿÿÿÖ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ        €?                 €?  €?  €?  €?                           €?  €?  €?  €?                             €?                   €?          €?  €?                                   €?                         A         €?          €?  €?                                   €?                                   €?          €?  €?                                   €?                                           €?          €?  €?                                   €?                                   €?          €?  €?                                   €?                                   €?          €?  €?                                   €?                                €?      €?         €?          €?  €?                                   €?                        €?         €?          €?  €?                                   €?                        €?         €?          €?  €?                                   €?                         A         €?          €?  €?                                   €?                                    €?         €?          €?  €?                                   €?                           €?    ÚÉ?         €?          €?  €?                                   €?                             @    Ç""ÿ”Pÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ         à@                                                                                      €?        
+×#<ÿÿÿÿ       ?                                                                                    '       333?      €?        ÍÌL>         €?          €?  €?                                   €?                      š™™>         €?          €?  €?                                   €?                      ÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿëìÙÿ     à@         €?          €?  €?                                   €?                                   €?          €?  €?                                   €?                            €?è        =
+—?  ÈA   @  @@  €?  €@  ´C                             HB         €?          €?  €?                                   €?                                                    @@         €?                                              ÚI?         €?          €?  €?                                   €?                          ÿÿÿŒÿÿÿ„                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ        €?                 €?  €?  €?  €?                           €?  €?  €?  €?                             €?                   €?          €?  €?                                   €?                                   €?          €?  €?                                   €?                         A         €?          €?  €?                                   €?                                           €?          €?  €?                                   €?                                   €?          €?  €?                                   €?                                   €?          €?  €?                                   €?                                €?      €?         €?          €?  €?                                   €?                        €?         €?          €?  €?                                   €?                        €?         €?          €?  €?                                   €?                         A         €?          €?  €?                                   €?                                    €?         €?          €?  €?                                   €?                           €?    ÚÉ?         €?          €?  €?                                   €?                             @    ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ                          ÿÿ              ÿÿ              ÿÿÿÿÿÿÿÿ         €?                                                                                      €?        
+×#<ÿÿÿÿ       ?                                                                                    (            ÿÿÿÿ  €?  €?          €?  €?                                                                      ?           @      €?                                                            '            ÿÿÿÿ  €?  €?          €?  €?                                                                      ?           @      €?                                                    

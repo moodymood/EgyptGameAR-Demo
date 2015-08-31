@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PopUpManager : MonoBehaviour {
 	
 	public GameObject popUpPanel;
-	public string popUpMessage;
+	private string levelToLoad;
 
 	// Use this for initialization
 	void Start () {
@@ -25,5 +25,18 @@ public class PopUpManager : MonoBehaviour {
 
 	public void setPopUpMessage(string popUpMessage){
 		popUpPanel.GetComponentsInChildren<Text> ()[0].text = popUpMessage;
+	}
+
+	public void setLevelToLoad(string levelToLoad){
+		this.levelToLoad = levelToLoad;
+	}
+
+	public void loadLevel(){
+		if (levelToLoad == "Quit")
+			Application.Quit ();
+		else {
+			SharedInfo.getCurrGame ().resetGame ();
+			Application.LoadLevel (levelToLoad);
+		}
 	}
 }
