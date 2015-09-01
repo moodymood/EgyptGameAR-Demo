@@ -15,9 +15,22 @@ public class AppOnBackCustom : MonoBehaviour {
 		isJustCollected = game.isArtefactJustCollected ();
 		if(isJustCollected && !won){
 			levelToGo = "CameraFinder";
+			if(game.getCurrentArtefact().getId() == 0) // Only for Anubis
+				SharedInfo.getSceneStatus().setUnvisited ("AfterCollection");
+				//setPanelActive();
 		}else{
 			levelToGo = "Collection";
 		}
+	}
+
+	public void setPanelActive(){
+		Component[] infoPanels = GameObject.Find("InfoPanels").GetComponentsInChildren( typeof(Transform), true );
+		foreach(Component temp in infoPanels){
+			if (temp.name == "InfoPanel-AfterCollection"){
+				temp.gameObject.SetActive(true);
+			}
+		}
+		//GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().setShowPopUp(true);
 	}
 	
 	void Update (){

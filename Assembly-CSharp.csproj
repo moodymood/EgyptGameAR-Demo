@@ -67,6 +67,8 @@
      <Compile Include="Assets\Demo1\Scripts\Misc\Game.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\OnButtonClick.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\PopUpManager.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Misc\SceneStatus.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Misc\SceneStatusManager.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\ScreenOrientationAuto.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\ScreenOrientationPortrait.cs" />
      <Compile Include="Assets\Demo1\Scripts\Misc\SharedInfo.cs" />
