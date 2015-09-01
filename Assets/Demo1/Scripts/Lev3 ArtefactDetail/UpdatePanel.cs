@@ -15,6 +15,7 @@ public class UpdatePanel : MonoBehaviour {
 	private Sprite spriteDown;
 	private Sprite spriteUp;
 
+	
 	// Use this for initialization
 	void Start () {
 		game = SharedInfo.getCurrGame ();
@@ -38,6 +39,7 @@ public class UpdatePanel : MonoBehaviour {
 	void Update () {
 
 		updateOrientationChanged ();
+		updateScreenTouched ();
 
 		float height = GameObject.Find ("ArtefactStoryPanel").GetComponent<RectTransform> ().rect.height;
 		Vector2 pos = GameObject.Find ("ArtefactStoryPanel").GetComponent<RectTransform> ().transform.position;
@@ -86,6 +88,22 @@ public class UpdatePanel : MonoBehaviour {
 			orientationChanged = false;
 	}
 
+	public void updateScreenTouched(){
+		// Only if the panel is shown
+		if(isPanelUp()){
+			if (Input.touchCount == 1) {
+				var touch = Input.GetTouch (0);
+				Vector3 pos = Camera.main.ScreenToViewportPoint (touch.position);
+
+				pos.x = Mathf.Clamp01 (pos.x);
+				pos.y = Mathf.Clamp01 (pos.y);
+
+				if (pos.x > 0 && pos.x < 1 && pos.y > 0.65 && pos.y < 1)
+					buttonClicked = true;
+			}
+		}
+	}
+
 
 	
 	public void setButtonClicked(){
@@ -107,5 +125,13 @@ public class UpdatePanel : MonoBehaviour {
 		else
 			return false;
 	}
+
+
+	//void OnGUI(){
+		//GUIStyle guiStyle = new GUIStyle();
+		//guiStyle.fontSize = 50; //change the font size
+		//GUI.Label (new Rect (20, 20, 400, 400), "buttonClicked: " + buttonClicked, guiStyle);
+	//}
+
 	
 }

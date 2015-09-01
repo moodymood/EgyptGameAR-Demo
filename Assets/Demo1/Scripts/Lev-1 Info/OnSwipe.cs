@@ -6,7 +6,7 @@ public class OnSwipe : MonoBehaviour {
 
 	private int offSet = 200;
 	private int currPanel = 1;
-	private int numPanel = 5;
+	private int numPanel = 4;
 	Vector2 startPos;
 
 	// Use this for initialization

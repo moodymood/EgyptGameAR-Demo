@@ -17,7 +17,6 @@ public class AppOnBackCustom : MonoBehaviour {
 			levelToGo = "CameraFinder";
 			if(game.getCurrentArtefact().getId() == 0) // Only for Anubis
 				SharedInfo.getSceneStatus().setUnvisited ("AfterCollection");
-				//setPanelActive();
 		}else{
 			levelToGo = "Collection";
 		}
@@ -30,7 +29,6 @@ public class AppOnBackCustom : MonoBehaviour {
 				temp.gameObject.SetActive(true);
 			}
 		}
-		//GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().setShowPopUp(true);
 	}
 	
 	void Update (){

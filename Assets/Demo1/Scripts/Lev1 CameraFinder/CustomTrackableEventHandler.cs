@@ -122,21 +122,24 @@ namespace Vuforia
 
 			// Show the artefact
 			if (currArtefact != null && currArtefact.getId() <= game.getCollectionStatus().getNextToCollect()) {
-				// Only if first artefact and not already collrcted
-				// If you dont want to show anymore after the OK button was pressed add:
-				// && !SharedInfo.getSceneStatus().isVisited("ARartefact");
-				if(currArtefact.getId() == 0 && !game.collectionStatus.isCollected(currArtefact)){
-					// Retrive unactive panel
-					Component[] infoPanels = GameObject.Find("InfoPanels").GetComponentsInChildren( typeof(Transform), true );
-					foreach(Component temp in infoPanels){
-						if (temp.name == "InfoPanel-ARartefact"){
-							temp.gameObject.SetActive(true);
+				// Only if the previous message has already been dismissed
+				if(GameObject.Find ("InfoPanel-CameraFinder") == null){
+					// Only if first artefact and not already collrcted
+					// If you dont want to show anymore after the OK button was pressed add:
+					// && !SharedInfo.getSceneStatus().isVisited("ARartefact");
+					if(currArtefact.getId() == 0 && !game.collectionStatus.isCollected(currArtefact)  && !SharedInfo.getSceneStatus().isVisited("ARartefact")){
+						// Retrive unactive panel
+						Component[] infoPanels = GameObject.Find("InfoPanels").GetComponentsInChildren( typeof(Transform), true );
+						foreach(Component temp in infoPanels){
+							if (temp.name == "InfoPanel-ARartefact"){
+								temp.gameObject.SetActive(true);
+							}
 						}
+						GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().setShowPopUp(true);
+						// OR
+						//SharedInfo.getSceneStatus().setVisited ("ARartefact");
+						//GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().UpdateOnce();
 					}
-					GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().setShowPopUp(true);
-					// OR
-					//SharedInfo.getSceneStatus().setVisited ("ARartefact");
-					//GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().UpdateOnce();
 
 				}
 				questionMarkRenderer.enabled = false;
@@ -163,8 +166,9 @@ namespace Vuforia
 			// pop up stop appearing only if OK was pressed, not when it desappear for tracking lost
 			if (GameObject.Find ("InfoPanel-ARartefact") != null) {
 				GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().setShowPopUp(false);
-				// OR
-				//SharedInfo.getSceneStatus().setUnvisited ("ARartefact");
+				// After it has been seen, set to unseen again as untill the OK button is pressed, the pop-up
+				// should keep appering
+				SharedInfo.getSceneStatus().setUnvisited ("ARartefact");
 				//GameObject.Find("InfoPanel-ARartefact").GetComponent<SceneStatusManager>().UpdateOnce();
 			}
 
@@ -183,9 +187,6 @@ namespace Vuforia
 			{
 				component.enabled = false;
 			}
-
-			SharedInfo.getSceneStatus().setUnvisited ("ARartefact");
-			GameObject.FindGameObjectWithTag("InfoPanel").GetComponent<SceneStatusManager>().UpdateOnce();
 			
 			//Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
 		}
