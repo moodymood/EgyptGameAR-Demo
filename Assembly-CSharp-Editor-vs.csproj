@@ -61,7 +61,6 @@
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\DepthMask.shader" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\BrightTexture.shader" />
      <None Include="Assets\StreamingAssets\QCAR\EgyptGameTargetDB.xml" />
-     <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\Text3D.shader" />
      <None Include="Assets\Resources\Collection\CollectionInfo.xml" />
  <Reference Include="Assembly-UnityScript-Editor-firstpass">

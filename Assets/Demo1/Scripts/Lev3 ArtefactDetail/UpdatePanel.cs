@@ -98,7 +98,9 @@ public class UpdatePanel : MonoBehaviour {
 				pos.x = Mathf.Clamp01 (pos.x);
 				pos.y = Mathf.Clamp01 (pos.y);
 
-				if (pos.x > 0 && pos.x < 1 && pos.y > 0.65 && pos.y < 1)
+				// I am tapping outside the panel, but not the close button
+				if (pos.x > 0 && pos.x < 0.85 && pos.y > 0.65 && pos.y < 1
+				    || pos.x > 0 && pos.x < 1 && pos.y > 0.65 && pos.y < 0.90)
 					buttonClicked = true;
 			}
 		}

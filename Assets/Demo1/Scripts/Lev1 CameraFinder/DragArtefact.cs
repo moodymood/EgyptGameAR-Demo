@@ -50,7 +50,7 @@ public class DragArtefact : MonoBehaviour {
 				
 				bool isArtefactHit;		
 
-
+				// If I am hitting something
 				if (Physics.Raycast (ray, out hit)) {
 					if(hit.transform.name == "BagModel"){
 						bagTransform = hit.transform;
@@ -74,7 +74,7 @@ public class DragArtefact : MonoBehaviour {
 
 						case TouchPhase.Moved:
 							// I am dragging the artefactm, so I move it
-							if(isArtefactHit){
+							if(isArtefactHit && draggingArtefact){
 									hit.transform.position = Camera.main.ScreenToWorldPoint (
 										new Vector3 (touchedPoint.x, touchedPoint.y, startPoint.z));
 							// I am touching the bag but carrying the artefact too

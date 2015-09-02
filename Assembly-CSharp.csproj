@@ -46,10 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Demo1\Scripts\Lev-1 Info\GameInit.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev-1 Info\OnSwipe.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev0 Menu\MenuButtonsManager.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev0 Menu\UpdateMenu.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\AppOnBack.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\OnButtonClick.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\Other\Collection.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\Other\CollectionStatus.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\Other\Game.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\Other\SceneStatus.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\Other\SharedInfo.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\PopUpManager.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\SceneStatusManager.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\ScreenOrientationAuto.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Common\ScreenOrientationPortrait.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev0 Init\GameInit.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev0 Init\LoadLevel.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev1 CameraFinder\CameraAutofocus.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev1 CameraFinder\CustomTrackableEventHandler.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev1 CameraFinder\DragArtefact.cs" />
@@ -61,17 +70,9 @@
      <Compile Include="Assets\Demo1\Scripts\Lev3 ArtefactDetail\Gestures.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev3 ArtefactDetail\ShowArtefact.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev3 ArtefactDetail\UpdatePanel.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\AppOnBack.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\Collection.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\CollectionStatus.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\Game.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\OnButtonClick.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\PopUpManager.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\SceneStatus.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\SceneStatusManager.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\ScreenOrientationAuto.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\ScreenOrientationPortrait.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Misc\SharedInfo.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev4 Menu\MenuButtonsManager.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev4 Menu\UpdateMenu.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev5 Info\OnSwipe.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CylinderTargetBehaviour.cs" />
@@ -118,7 +119,6 @@
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\DepthMask.shader" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\BrightTexture.shader" />
      <None Include="Assets\StreamingAssets\QCAR\EgyptGameTargetDB.xml" />
-     <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\Text3D.shader" />
      <None Include="Assets\Resources\Collection\CollectionInfo.xml" />
  <Reference Include="UnityEngine.UI">
