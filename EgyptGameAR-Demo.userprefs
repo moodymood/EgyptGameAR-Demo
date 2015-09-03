@@ -1,16 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Demo1/Scripts/Lev3 ArtefactDetail/UpdatePanel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Demo1/Scripts/Lev7 IntroEnd/UpdateIntroEndPanel.cs">
     <Files>
-      <File FileName="Assets/Demo1/Scripts/Lev1 CameraFinder/DragArtefact.cs" Line="77" Column="46" />
-      <File FileName="Assets/Demo1/Scripts/Lev1 CameraFinder/UpdateLabelText.cs" Line="18" Column="1" />
-      <File FileName="Assets/Demo1/Scripts/Lev0 Init/LoadLevel.cs" Line="10" Column="37" />
-      <File FileName="Assets/Demo1/Scripts/Common/OnButtonClick.cs" Line="32" Column="4" />
-      <File FileName="Assets/Demo1/Scripts/Lev0 Init/GameInit.cs" Line="8" Column="20" />
-      <File FileName="Assets/Demo1/Scripts/Common/Other/SharedInfo.cs" Line="10" Column="44" />
-      <File FileName="Assets/Demo1/Scripts/Lev4 Menu/UpdateMenu.cs" Line="28" Column="33" />
-      <File FileName="Assets/Demo1/Scripts/Lev4 Menu/MenuButtonsManager.cs" Line="28" Column="38" />
-      <File FileName="Assets/Demo1/Scripts/Lev3 ArtefactDetail/UpdatePanel.cs" Line="103" Column="66" />
+      <File FileName="Assets/Resources/Collection/CollectionInfo.xml" Line="69" Column="5" />
+      <File FileName="Assets/Demo1/Scripts/Lev7 IntroEnd/UpdateIntroEndPanel.cs" Line="5" Column="28" />
+      <File FileName="Assets/Demo1/Scripts/Common/OnButtonClick.cs" Line="1" Column="1" />
+      <File FileName="Assets/Demo1/Scripts/Lev3 ArtefactDetail/AppOnBackCustom.cs" Line="1" Column="1" />
+      <File FileName="Assets/Demo1/Scripts/Lev4 Clue/UpdateClue.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -14,7 +14,7 @@ public class AppOnBackCustom : MonoBehaviour {
 
 		isJustCollected = game.isArtefactJustCollected ();
 		if(isJustCollected && !won){
-			levelToGo = "CameraFinder";
+			levelToGo = "Clue";
 			if(game.getCurrentArtefact().getId() == 0) // Only for Anubis
 				SharedInfo.getSceneStatus().setUnvisited ("AfterCollection");
 		}else{

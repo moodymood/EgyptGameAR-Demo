@@ -25,6 +25,17 @@ public class OnButtonClick : MonoBehaviour {
 		Application.LoadLevel(levelToLoad);
 	}
 
+	
+	public void IntroEndloadLevel(){
+		// Not finished
+		if (SharedInfo.getCurrGame().getCollection ().getTotal () != SharedInfo.getCurrGame().getCollectionStatus ().getTotalCollected ())
+			Application.LoadLevel ("Clue");
+		else
+			Application.LoadLevel ("Menu");
+	}
+
+
+
 	//void OnGUI () {
 		//GUIStyle guiStyle = new GUIStyle();
 		//guiStyle.fontSize = 50; //change the font size

@@ -70,9 +70,11 @@
      <Compile Include="Assets\Demo1\Scripts\Lev3 ArtefactDetail\Gestures.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev3 ArtefactDetail\ShowArtefact.cs" />
      <Compile Include="Assets\Demo1\Scripts\Lev3 ArtefactDetail\UpdatePanel.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev4 Menu\MenuButtonsManager.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev4 Menu\UpdateMenu.cs" />
-     <Compile Include="Assets\Demo1\Scripts\Lev5 Info\OnSwipe.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev4 Clue\UpdateClue.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev5 Menu\MenuButtonsManager.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev5 Menu\UpdateMenu.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev6 Info\OnSwipe.cs" />
+     <Compile Include="Assets\Demo1\Scripts\Lev7 IntroEnd\UpdateIntroEnd.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CylinderTargetBehaviour.cs" />
