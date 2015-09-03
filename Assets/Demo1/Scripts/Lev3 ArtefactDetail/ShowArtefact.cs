@@ -40,7 +40,8 @@ public class ShowArtefact : MonoBehaviour {
 	}
 
 	public void updateStoryPanelContent(){
-		GameObject.Find("StoryContentText").GetComponentInChildren<Text>().text = game.getCurrentArtefact().getStory();
+		GameObject.Find("StoryContentText").GetComponentInChildren<Text>().text = game.getCurrentArtefact().getStory() + 
+			"CLUES for the next one:\n" + game.getCurrentArtefact().getClue();
 		GameObject.Find ("DetailButton").GetComponentInChildren<Text> ().text = game.getCurrentArtefact().getName() + " Details"; 
 	}
 

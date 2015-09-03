@@ -91,11 +91,11 @@ namespace Vuforia
 			{
 				string componentName = component.gameObject.name.Replace("Texture","");
 
-				if(componentName == "Horus0" || componentName == "Horus1"){
-					if(componentName == "Horus0"){
+				if(componentName == "Cippus0" || componentName == "Cippus1"){
+					if(componentName == "Cippus0"){
 						artefactRendererExtra = component;
 					}
-					componentName = "Horus";
+					componentName = "Cippus";
 				}
 
 				currArtefact = game.getCollection().getArtefactByName(componentName);
@@ -145,7 +145,7 @@ namespace Vuforia
 				questionMarkRenderer.enabled = false;
 				artefactCollider.enabled = true;
 				artefactRenderer.enabled = true;
-				if(currArtefact.getName() == "Horus")
+				if(currArtefact.getName() == "Cippus")
 					artefactRendererExtra.enabled = true;
 
 			} else {

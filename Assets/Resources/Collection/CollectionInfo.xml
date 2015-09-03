@@ -1,34 +1,73 @@
 <xml>
 <collection>
 	<artefact id="0">
-		<name>Anubis</name>
-		<story>This is the story about Anubis. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</story>
-	</artefact>
+		<name>Bes</name>
+		<story>
+			Faience bell in the shape of the head of Bes made out of pale green faience which usually dates to the Late Ptolemaic Periods 747 - 30BC. It is in the shape of a hollow Bes head crowned with feathers and has a hole for suspension as well as another, presumably for the tongue of the bell. The tongue itself is missing.
+			The deity Bes is usually associated with percussion instruments, usually the hand drum, and occasionally a harp. Bes was a protective deity, particularly for women in childbirth and for young children. It is possible that bells like this were amuletic and perhaps worn around the necks of children to protect them. However the fact that this is made from faience, a fragile material, suggests it may have been a votive offering and not intended to be used as a bell at all.
+		</story>
+		<clue>For my pregnant wife, Barbara, I want:
+			Something fun and full of life
+			Something musical, able to create a soothing note for her and the baby
+			Something as delicate and fragile as she is
+			Something beautiful, perhaps a bright colour to light up her face
+			Perhaps a funny face, to make her and the baby laugh
+		</clue>
+	 </artefact>
 	<artefact id="1">
-		<name>BaBird</name>
-		<story>This is the story about BaBird. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</story>
+		<name>Anubis</name>
+		<story>	
+			TWood statue of a crouching jackal, representing the god Anubis. When depicted in the form of a jackal like this he is often shown wearing a red collar or a tie. Objects such as this were often placed on top of coffins, and date to the Late Dynastic Period 747-332 BC.
+			Anubis was the god of the dead and was particularly associated with mummification. He was believed to have performed the very first mummification on Osiris, god of the afterlife. Anubis was shown in the form of a jackal because the ancient Egyptians would see these creatures lurking around tombs at night and connected this with the god who would lead the dead from their tombs into the afterlife.
+		</story>
+		<clue>For my son, Alan, I want:
+			Something deep from the depths of the tomb
+			Something linked to mummification, that's sure to fascinate him!
+			Nothing too scary, make it seem friendly as well
+			He loves animals, especially dogs
+		</clue>
 	</artefact>
 	<artefact id="2">
-		<name>Bes</name>
-		<story>This is the story about Bes. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</story>
+		<name>BaBird</name>
+		<story>
+			Wooden Ba bird decorated with red and black paint. The paint seems to be put straight on top of the wood, without a gesso layer first (a type of white plaster). Examples of Ba bird statues appear in the New Kingdom but are much more common in the mid-late 1st millennium BC. Many have holes with broken dowel fragments in the base suggesting that they were attached to shrines, stela or on top of coffins.
+			The Ba is similar to our idea of personality. The dead person had to leave the tomb to join with his Ka, or soul if he was to become an everlasting spirit and live forever in the afterlife. As the actual body could not leave the tomb, the Ba had to do this. The Ba was shown as a bird as it could fly away and leave the tomb. It would have a human head representing the deceased.
+		</story>
+		<clue>For my daughter, Amelia, I want: 
+			Something unusual, but with a friendly face
+			She loves to visit the market, so something connected with gathering provisions
+			Something with lots of colour, to brighten up her day
+			She has a fondness for birds, she loves to listen to their beautiful song
+		</clue>
 	</artefact>
 	<artefact id="3">
-		<name>Horus</name>
-		<story>This is the story about Horus. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</story>
+		<name>Cippus</name>
+		<story>
+			This type of stela is called a 'Cippus'. This object is made from a stone called steatite and is likely to have come from Abydos. Items such as these were found in the home of both rich and poor and usually date from the New Kingdom to Graeco Roman times.
+			It shows the god Horus in the form of a child standing on a crocodile and holding snakes in his hands. In this way, he displays victory over dangerous animals. Above would have depicted the head of the protective deity Bes, although this is now badly damaged. The stela also has magical spells written on the reverse and around the edge.
+			It is usually believed that such items had magical qualities against illness; if you poured water over the cippus, the figure of Horus the Child together with the magic spell on the back and the image of Bes would impart healing powers to the water. 
+		</story>
+		<clue>For my brother, Howard, I want:
+			He's interested in Egyptian religion, something to do with that
+			Something more homely, a bit more domestic
+			Something made of stone
+			Something to remind him of his son
+		</clue>
 	</artefact>
 	<artefact id="4">
 		<name>Nefertum</name>
-		<story>This is the story about Nefertum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</story>
+		<story>
+			This statue dates to the Late Dynastic Period 747-332 BC, and is made of faience which is a type of early ceramic made in a similar way to glass. It depicts the god Nefertum and his mother the goddess Sekhmet. 
+			Nefertum is closely connected to the lotus flower, its perfume and its association with creation. As such, he would have been a strong symbol of life. His mother, the lioness headed Sekhmet is goddess of war, pestilence and toothache. Although she would have been believed to be responsible for causing sicknesses, the ancient Egyptians would have turned to her in the hopes she would make them better and remove their illnesses. 
+			The back support of this faience statue has prayers to Sekhmet, her husband Ptah and their son Nefertum for 'all life, health and graciousness of heart'.
+		</story>
+		<clue>For my mother, I want:
+			Something divine, depicting Egyptian gods 
+			Something showing a mother and son to remind her that I'm thinking of her 
+			Something with a back-support, she's getting older! 
+			Something not too bright, subtle colours are best
+			Something brave and fierce, she’s a feisty woman!
+		</clue>
 	</artefact>
 </collection>
 </xml>

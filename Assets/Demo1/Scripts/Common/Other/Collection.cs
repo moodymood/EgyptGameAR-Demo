@@ -22,11 +22,12 @@ public class Collection : IEnumerable<Artefact>{
 		select new { 
 			id = artefact.Attribute("id"),
 			artefactNames = artefact.Descendants("name"),
-			artefactStories = artefact.Descendants("story")
+			artefactStories = artefact.Descendants("story"),
+			artefactClues = artefact.Descendants("clue")
 		};
 		foreach (var artefact in queryResult){
 			addArtefact(new Artefact(
-				Int32.Parse(artefact.id.Value), artefact.artefactNames.FirstOrDefault().Value, artefact.artefactStories.FirstOrDefault().Value));	
+				Int32.Parse(artefact.id.Value), artefact.artefactNames.FirstOrDefault().Value, artefact.artefactStories.FirstOrDefault().Value, artefact.artefactClues.FirstOrDefault().Value));	
 		}
 	}
 
@@ -34,8 +35,8 @@ public class Collection : IEnumerable<Artefact>{
 		collection.Add (artefact);
 	}
 
-	public void addArtefact(int id, string name, string story){
-		collection.Add (new Artefact (id, name, story));
+	public void addArtefact(int id, string name, string story, string clue){
+		collection.Add (new Artefact (id, name, story, clue));
 	}
 
 	public Artefact getArtefactByName(string artefactName){
@@ -68,17 +69,20 @@ public class Artefact{
 	private int id;
 	private string name;
 	private string story;
+	private string clue;
 
 	public Artefact(){
 		this.id = -1;
 		this.name = null;
 		this.story = null;
+		this.clue = null;
 	}
 
-	public Artefact(int id, string name, string story){
+	public Artefact(int id, string name, string story, string clue){
 		this.id = id;
 		this.name = name;
 		this.story = story;
+		this.clue = clue;
 	}
 
 	public int getId(){
@@ -93,6 +97,10 @@ public class Artefact{
 		return story;
 	}
 
+	public string getClue(){
+		return clue;
+	}
+
 	public override bool Equals(System.Object obj)
 	{
 		if (obj == null)
@@ -101,14 +109,14 @@ public class Artefact{
 		Artefact artefact = obj as Artefact;
 		if ((System.Object)artefact == null)
 			return false;
-		return (getName() == artefact.getName()) && (getId() == artefact.getId()) && (getStory() == artefact.getStory());
+		return (getName() == artefact.getName()) && (getId() == artefact.getId());
 	}
 	
 	public bool Equals(Artefact artefact)
 	{
 		if ((object)artefact == null)	
 			return false;
-		return (getName() == artefact.getName()) && (getId() == artefact.getId()) && (getStory() == artefact.getStory());
+		return (getName() == artefact.getName()) && (getId() == artefact.getId());
 	}
 
 	public override int GetHashCode()
