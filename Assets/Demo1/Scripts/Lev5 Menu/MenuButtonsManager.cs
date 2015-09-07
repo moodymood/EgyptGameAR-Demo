@@ -27,7 +27,7 @@ public class MenuButtonsManager : MonoBehaviour {
 		if(won)
 			Application.LoadLevel ("Collection");
 		else
-			Application.LoadLevel ("CameraFinder");
+			Application.LoadLevel ("Loader");
 
 	}
 
